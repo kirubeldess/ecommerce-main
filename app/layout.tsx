@@ -34,9 +34,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ubuntu.variable}  antialiased ` }>
+      <body className={`${ubuntu.variable} font-sans antialiased ` }>
         {children}
       </body>
     </html>
   );
 }
+
