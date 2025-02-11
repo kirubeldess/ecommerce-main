@@ -33,7 +33,7 @@ export default function Header(){
                 </Button>
                 <div className="flex items-center flex-wrap gap-3 overflow-hidden max-h-[42px]">
                     {data.headerMenus.map((menu)=>(
-                        <Link href={menu.href} key={menu.href} className='header-button !p-2 hover:bg-primary hover:text-white  hover:rounded-md'>
+                        <Link href={menu.href} key={menu.href} className='header-button !p-2 hover:bg-primary hover:text-white transition-colors duration-500 ease-in-out  hover:rounded-md'>
                             {menu.name}
                         </Link>
                     ))}
