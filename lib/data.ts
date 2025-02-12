@@ -326,6 +326,62 @@ const products: IProductInput[] = [
 
     reviews: [],
   },
+  {
+    name: 'Earphones',
+    slug: toSlug('Original Earphones'),
+    category: 'Accessories',
+    brand: 'Ruggas',
+    images: ['/images/p25-1.jpg', '/images/p25-2.jpg'],
+    tags: ['best-seller', 'featured'],
+    isPublished: true,
+    price: 300,
+    // listPrice: 0,
+    avgRating: 3.66,
+    numReviews: 15,
+    ratingDistribution: [
+      { rating: 1, count: 1 },
+      { rating: 2, count: 2 },
+      { rating: 3, count: 3 },
+      { rating: 4, count: 4 },
+      { rating: 5, count: 5 },
+    ],
+    // countInStock: 25,
+    numSales: 48,
+    description:
+      'Original Earphones',
+    // sizes: ['30Wx30L', '34Wx30L', '36Wx30L'],
+    // colors: ['Blue', 'Grey'],
+
+    reviews: [],
+  },
+  {
+    name: 'Largo Detergent',
+    slug: toSlug('Original Detergent'),
+    category: 'Home Supplies',
+    brand: 'Largo',
+    images: ['/images/p25-1.jpg', '/images/p25-2.jpg'],
+    tags: ['best-seller', 'featured'],
+    isPublished: true,
+    price: 350,
+    // listPrice: 0,
+    avgRating: 3.66,
+    numReviews: 15,
+    ratingDistribution: [
+      { rating: 1, count: 1 },
+      { rating: 2, count: 2 },
+      { rating: 3, count: 3 },
+      { rating: 4, count: 4 },
+      { rating: 5, count: 5 },
+    ],
+    // countInStock: 25,
+    numSales: 48,
+    description:
+      'Original Detergent',
+    // sizes: ['30Wx30L', '34Wx30L', '36Wx30L'],
+    // colors: ['Blue', 'Grey'],
+
+    reviews: [],
+  },
 ]
 
 
