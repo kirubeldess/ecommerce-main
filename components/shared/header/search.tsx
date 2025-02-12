@@ -2,7 +2,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { SearchIcon } from "lucide-react"
 
-const categories= ['Food and Groceries','Accessories', 'Cosmestics', 'Home Supplies','Tools']
+const categories= ['Food and Groceries','Accessories', 'Cosmestics', 'Home Supplies','Kids']
 
 export default function Search(){
     return (
