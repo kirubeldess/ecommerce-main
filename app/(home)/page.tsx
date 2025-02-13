@@ -14,9 +14,11 @@ import { HomeCard } from '@/components/shared/home/home-card'
 // import { getAllCategories, getProductsForCard } from '@/lib/actions/product.actions'
 import { toSlug } from '@/lib/utils'
 import data from "@/lib/data";
-import { getAllCategories,getProductsForCard} from "@/lib/actions/product.actions";
+import { getAllCategories,getProductsByTag,getProductsForCard} from "@/lib/actions/product.actions";
 import { HomeLatestCard } from "@/components/shared/home/home-latest-card";
 import { HomeBestSellers } from "@/components/shared/home/home-best-sellers";
+import { Card, CardContent } from "@/components/ui/card";
+import ProductSlider from "@/components/shared/product/product-slider";
 
 
 export default async function HomePage() {
@@ -92,6 +94,7 @@ export default async function HomePage() {
     }
   ]
 
+  const bestSellingProducts = await getProductsByTag({tag: 'best-seller'})
   return (
     <>
       <HomeCarousel items={data.carousels} />
@@ -105,7 +108,15 @@ export default async function HomePage() {
             <HomeBestSellers bestSales={bestSales} />
           </div>
         </div>
-
+        <Card className="w-full rounded-none">
+          <CardContent className="p-4 items-center gap-3">
+            <ProductSlider 
+              title="Best Selling Products"
+              products={bestSellingProducts}
+              // hideDetails
+            />
+          </CardContent>
+        </Card>
       </div>
     </>
   )

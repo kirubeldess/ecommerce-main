@@ -76,6 +76,7 @@ body {
     --primary: 142.1 76.2% 36.3%;
     --primary-foreground: 355.7 100% 97.3%;
     --secondary: 240 4.8% 95.9%;
+    --tertiary: 60 76.2% 36.3%;
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
@@ -140,5 +141,8 @@ body {
   }
   .h1-bold{
     @apply font-bold text-2xl lg:text-3xl;
+  }
+  .h2-bold{
+    @apply font-bold text-lg lg:text-xl
   }
 }

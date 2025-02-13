@@ -19,7 +19,7 @@ export function HomeCard({ cards }: { cards: CardItem[] }) {
     
 <>
 
-<div className="bg-gradient-to-b from-primary/5 to-primary/10 py-16 px-4 sm:px-6 lg:px-8">
+<div className="bg-gradient-to-b from-primary/5 to-primary/10 py-6 px-4 sm:px-6 lg:px-8">
   <div className="max-w-7xl mx-auto space-y-16">
     {cards.map((card) => (
       <div 
