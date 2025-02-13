@@ -14,23 +14,25 @@ import { HomeCard } from '@/components/shared/home/home-card'
 // import { getAllCategories, getProductsForCard } from '@/lib/actions/product.actions'
 import { toSlug } from '@/lib/utils'
 import data from "@/lib/data";
-import { getAllCategories } from "@/lib/actions/product.actions";
+import { getAllCategories,getProductsForCard} from "@/lib/actions/product.actions";
+import { HomeLatestCard } from "@/components/shared/home/home-latest-card";
+import { HomeBestSellers } from "@/components/shared/home/home-best-sellers";
 
 
 export default async function HomePage() {
   const categories = (await getAllCategories()).slice(0, 5)
-  // const newArrivals = await getProductsForCard({
-  //   tag: 'latest-products',
-  //   limit: 4,
-  // })
+  const newArrivals = await getProductsForCard({
+    tag: 'latest-products',
+    limit: 4,
+  })
   // const featureds = await getProductsForCard({
   //   tag: 'featured',
   //   limit: 4,
   // })
-  // const bestSellers = await getProductsForCard({
-  //   tag: 'best-seller',
-  //   limit: 4,
-  // })
+  const bestSellers = await getProductsForCard({
+    tag: 'best-seller',
+    limit: 4,
+  })
   const cards = [
     {
       title: 'Categories to explore',
@@ -69,12 +71,41 @@ export default async function HomePage() {
     //   },
     // },
   ]
+  const latCards = [
+    {
+         title: 'Explore New Arrivals',
+         items: newArrivals,
+         link: {
+           text: 'View All',
+           href: '/search?tag=latest-products',
+         },
+     },
+  ]
+  const bestSales=[
+    {
+      title: 'Discover Best Sellers',
+      items: bestSellers,
+      link: {
+        text: 'View All',
+        href: '/search?tag=latest-products',
+      },
+    }
+  ]
 
   return (
     <>
       <HomeCarousel items={data.carousels} />
       <div className='md:p-4 md:space-y-2 bg-white items-center '>
         <HomeCard cards={cards} />
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex-1">
+            <HomeLatestCard latCards={latCards} />
+          </div>
+          <div className="flex-1">
+            <HomeBestSellers bestSales={bestSales} />
+          </div>
+        </div>
+
       </div>
     </>
   )

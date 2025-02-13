@@ -12,7 +12,7 @@ export async function getAllCategories() {
 }
 export async function getProductsForCard({
   tag,
-  limit = 5,
+  limit = 4,
 }: {
   tag: string
   limit?: number
