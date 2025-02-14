@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { APP_DESCRIPTION, APP_NAME, APP_SLOGAN } from "@/lib/constants";
+import ClientProviders from "@/components/shared/client-providers";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -35,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${ubuntu.variable} font-sans antialiased ` }>
-        {children}
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );

@@ -101,7 +101,7 @@ export default function CartPage() {
                             onClick={() => removeItem(item)}
                             className='bg-red-500 text-white'
                           >
-                            Delete
+                            Remove
                           </Button>
                         </div>
                       </div>
