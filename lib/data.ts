@@ -15,6 +15,7 @@ const users: IUserInput[] = [
       phone: '963758686',
     },
     paymentMethod: 'Cash on Delivery',
+    shopFrom:'Shop 1',
     emailVerified: false,
   },
   {
@@ -30,6 +31,7 @@ const users: IUserInput[] = [
       phone: '123-456-7890',
     },
     paymentMethod: 'Cash On Delivery',
+    shopFrom:'Shop 1',
     emailVerified: false,
   },
   {
@@ -45,6 +47,7 @@ const users: IUserInput[] = [
       phone: '123-456-7890',
     },
     paymentMethod: 'Cash On Delivery',
+    shopFrom:'Shop 1',
     emailVerified: false,
   },
   {
@@ -60,6 +63,7 @@ const users: IUserInput[] = [
       phone: '123-456-7890',
     },
     paymentMethod: 'Cash On Delivery',
+    shopFrom:'Shop 1',
     emailVerified: false,
   },
   {
@@ -75,6 +79,7 @@ const users: IUserInput[] = [
       phone: '123-456-7890',
     },
     paymentMethod: 'Cash On Delivery',
+    shopFrom:'Shop 1',
     emailVerified: false,
   },
   {
@@ -90,6 +95,7 @@ const users: IUserInput[] = [
       phone: '123-456-7890',
     },
     paymentMethod: 'Cash On Delivery',
+    shopFrom:'Shop 1',
     emailVerified: false,
   },
   {
@@ -105,6 +111,7 @@ const users: IUserInput[] = [
       phone: '123-456-7890',
     },
     paymentMethod: 'Cash On Delivery',
+    shopFrom:'Shop 1',
     emailVerified: false,
   },
 ]

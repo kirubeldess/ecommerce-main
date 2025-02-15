@@ -84,6 +84,7 @@ export const UserInputSchema = z.object({
   role: UserRole,
   password: Password,
   paymentMethod: z.string().min(1, 'Payment method is required'),
+  shopFrom: z.string().min(1, 'Choose a shop you want to purchase from'),
   address: z.object({
     fullName: z.string().min(1, 'Full name is required'),
     block: z.string().min(1,'block is required'),
