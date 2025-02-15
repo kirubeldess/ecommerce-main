@@ -65,3 +65,35 @@ export const CartSchema = z.object({
   shippingPrice: z.optional(z.number()),
   totalPrice: z.number(),
 })
+
+
+// USER
+const UserName = z
+  .string()
+  .min(2, { message: 'Username must be at least 2 characters' })
+  .max(50, { message: 'Username must be at most 30 characters' })
+const Email = z.string().min(1, 'Email is required').email('Email is invalid')
+const Password = z.string().min(3, 'Password must be at least 3 characters')
+const UserRole = z.string().min(1, 'role is required')
+
+export const UserInputSchema = z.object({
+  name: UserName,
+  email: Email,
+  image: z.string().optional(),
+  emailVerified: z.boolean(),
+  role: UserRole,
+  password: Password,
+  paymentMethod: z.string().min(1, 'Payment method is required'),
+  address: z.object({
+    fullName: z.string().min(1, 'Full name is required'),
+    block: z.string().min(1,'block is required'),
+    floor: z.string().min(1, 'floor is required'),
+    room: z.string().min(1, 'House Number is required'),
+    phone: z.string().min(1, 'Phone number is required'),
+  }),
+})
+
+export const UserSignInSchema = z.object({
+  email: Email,
+  password: Password,
+})

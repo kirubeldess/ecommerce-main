@@ -1,5 +1,115 @@
-import { IProductInput ,Data} from "@/types"
 import { toSlug } from "./utils"
+import { Data, IProductInput, IUserInput } from '@/types'
+import bcrypt from 'bcryptjs'
+const users: IUserInput[] = [
+  {
+    name: 'Admin',
+    email: 'souqmain1@gmail.com',
+    password: bcrypt.hashSync('kirr1717', 5),
+    role: 'Admin',
+    address: {
+      fullName: 'Kirubel Desalegn',
+      block: '12',
+      floor: '2',
+      room: '211',
+      phone: '963758686',
+    },
+    paymentMethod: 'Cash on Delivery',
+    emailVerified: false,
+  },
+  {
+    name: 'Abebe',
+    email: 'abebe@example.com',
+    password: bcrypt.hashSync('123456', 5),
+    role: 'User',
+    address: {
+      fullName: 'Abebe Belete',
+      block: '12',
+      floor: '2',
+      room: '211',
+      phone: '123-456-7890',
+    },
+    paymentMethod: 'Cash On Delivery',
+    emailVerified: false,
+  },
+  {
+    name: 'Belete',
+    email: 'belete@example.com',
+    password: bcrypt.hashSync('123456', 5),
+    role: 'User',
+    address: {
+      fullName: 'Abebe Belete',
+      block: '12',
+      floor: '2',
+      room: '211',
+      phone: '123-456-7890',
+    },
+    paymentMethod: 'Cash On Delivery',
+    emailVerified: false,
+  },
+  {
+    name: 'Zd',
+    email: 'zd@example.com',
+    password: bcrypt.hashSync('123456', 5),
+    role: 'User',
+    address: {
+      fullName: 'Zad Zod',
+      block: '12',
+      floor: '2',
+      room: '211',
+      phone: '123-456-7890',
+    },
+    paymentMethod: 'Cash On Delivery',
+    emailVerified: false,
+  },
+  {
+    name: 'Bomboclat',
+    email: 'bombo@example.com',
+    password: bcrypt.hashSync('123456', 5),
+    role: 'User',
+    address: {
+      fullName: 'Boomboclaat',
+      block: '12',
+      floor: '2',
+      room: '211',
+      phone: '123-456-7890',
+    },
+    paymentMethod: 'Cash On Delivery',
+    emailVerified: false,
+  },
+  {
+    name: 'Giki',
+    email: 'giki@example.com',
+    password: bcrypt.hashSync('123456', 5),
+    role: 'User',
+    address: {
+      fullName: 'Giki Giki',
+      block: '12',
+      floor: '2',
+      room: '211',
+      phone: '123-456-7890',
+    },
+    paymentMethod: 'Cash On Delivery',
+    emailVerified: false,
+  },
+  {
+    name: 'Elmo',
+    email: 'elmo@example.com',
+    password: bcrypt.hashSync('123456', 5),
+    role: 'User',
+    address: {
+      fullName: 'Elmo Elmo',
+      block: '12',
+      floor: '2',
+      room: '211',
+      phone: '123-456-7890',
+    },
+    paymentMethod: 'Cash On Delivery',
+    emailVerified: false,
+  },
+]
+
+
 
 const products: IProductInput[] = [
   
@@ -386,6 +496,7 @@ const products: IProductInput[] = [
 
 
 const data : Data={
+    users,
     products,
     headerMenus: [
       {
