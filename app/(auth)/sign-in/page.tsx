@@ -30,10 +30,10 @@ export default async function SignIn(props: {
   }
 
   return (
-    <div className='w-full'>
+    <div className='w-full p-3 mb-4'>
       <Card>
         <CardHeader>
-          <CardTitle className='text-2xl'>Sign In</CardTitle>
+          <CardTitle className='text-2xl text-primary'>Sign In</CardTitle>
         </CardHeader>
         <CardContent>
           <div>
@@ -45,10 +45,10 @@ export default async function SignIn(props: {
             </div>
         </CardContent>
       </Card>
-      <SeparatorWithOr>New to {APP_NAME}?</SeparatorWithOr>
+      <SeparatorWithOr >New to {APP_NAME}?</SeparatorWithOr>
 
       <Link href={`/sign-up?callbackUrl=${encodeURIComponent(callbackUrl)}`}>
-        <Button className='w-full' variant='outline'>
+        <Button className='w-full bg-primary text-white mb-10' variant='outline'>
           Create your {APP_NAME} account
         </Button>
       </Link>

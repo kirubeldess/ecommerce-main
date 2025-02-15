@@ -103,11 +103,7 @@ export default function CredentialsSignInForm() {
           <div>
             <Button type='submit'>Sign In</Button>
           </div>
-          {/* <div className='text-sm'>
-            By signing in, you agree to {APP_NAME}&apos;s{' '}
-            <Link href='/page/conditions-of-use'>Conditions of Use</Link> and{' '}
-            <Link href='/page/privacy-policy'>Privacy Notice.</Link>
-          </div> */}
+          
         </div>
       </form>
     </Form>
