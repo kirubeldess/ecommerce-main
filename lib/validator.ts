@@ -18,14 +18,7 @@ export const ProductInputSchema = z.object({
   description: z.string().min(1, 'Description is required'),
   isPublished: z.boolean(),
   price: Price('Price'),
-//   listPrice: Price('List price'),
-//   countInStock: z.coerce
-//     .number()
-//     .int()
-//     .nonnegative('count in stock must be a non-negative number'),
   tags: z.array(z.string()).default([]),
-//   sizes: z.array(z.string()).default([]),
-//   colors: z.array(z.string()).default([]),
   avgRating: z.coerce
     .number()
     .min(0, 'Average rating must be at least 0')
@@ -58,10 +51,20 @@ export const OrderItemSchema = z.object({
   price: Price('Price')
 })
 
+export const ShippingAddressSchema = z.object({
+  fullName: z.string().min(1, 'Full name is required'),
+  phone: z.string().min(1, 'Phone number is required'),
+  block: z.string().min(1,'block is required'),
+  floor: z.string().min(1, 'floor is required'),
+  room: z.string().min(1, 'House Number is required'),
+})
+
 export const CartSchema = z.object({
   items: z.array(OrderItemSchema).min(1,'Order must contain atleast 1 item'),
   itemsPrice: z.number(),
+  shopFrom: z.optional(z.string()),
   paymentMethod: z.optional(z.string()),
+  shippingAddress: z.optional(ShippingAddressSchema),
   shippingPrice: z.optional(z.number()),
   totalPrice: z.number(),
 })

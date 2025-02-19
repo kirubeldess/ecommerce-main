@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-import { Cart, OrderItem } from '@/types'
+import { Cart, OrderItem, ShippingAddress } from '@/types'
 import { calcDeliveryPrice } from '@/lib/actions/order.actions'
 
 const initialState: Cart = {
@@ -10,7 +10,8 @@ const initialState: Cart = {
   shippingPrice: undefined,
   totalPrice: 0,
   paymentMethod: undefined,
-  
+  shopFrom:undefined,
+  shippingAddress: undefined,
 }
 
 interface CartState {
@@ -19,6 +20,10 @@ interface CartState {
 
   updateItem: (item:OrderItem, quantity: number) => Promise<void>
   removeItem: (item: OrderItem) => void
+  clearCart:()=> void
+  setPaymentMethod: (paymentMethod: string) => void
+  setShopFrom:(shopFrom:string) => void
+  setShippingAddress: (shippingAddress: ShippingAddress) => Promise<void>
 }
 
 const useCartStore = create(
@@ -27,7 +32,7 @@ const useCartStore = create(
       cart: initialState,
 
       addItem: async (item: OrderItem, quantity: number) => {
-        const { items } = get().cart
+        const { items,shippingAddress } = get().cart
         const existItem = items.find(
           (x) =>
             x.product === item.product
@@ -48,6 +53,7 @@ const useCartStore = create(
             items: updatedCartItems,
             ...(await calcDeliveryPrice({
               items: updatedCartItems,
+              shippingAddress,
             })),
           },
         })
@@ -58,7 +64,7 @@ const useCartStore = create(
         )?.clientId!
       },
       updateItem: async (item: OrderItem, quantity: number) => {
-        const { items } = get().cart
+        const { items,shippingAddress } = get().cart
         const exist = items.find(
           (x) =>
             x.product === item.product 
@@ -75,12 +81,13 @@ const useCartStore = create(
             items: updatedCartItems,
             ...(await calcDeliveryPrice({
               items: updatedCartItems,
+              shippingAddress
             })),
           },
         })
       },
       removeItem: async (item: OrderItem) => {
-        const { items } = get().cart
+        const { items,shippingAddress } = get().cart
         const updatedCartItems = items.filter(
           (x) =>
             x.product !== item.product 
@@ -91,7 +98,45 @@ const useCartStore = create(
             items: updatedCartItems,
             ...(await calcDeliveryPrice({
               items: updatedCartItems,
+              shippingAddress
             })),
+          },
+        })
+      },
+      setShippingAddress: async (shippingAddress: ShippingAddress) => {
+        const { items } = get().cart
+        set({
+          cart: {
+            ...get().cart,
+            shippingAddress,
+            ...(await calcDeliveryPrice({
+              items,
+              shippingAddress,
+            })),
+          },
+        })
+      },
+      setPaymentMethod: (paymentMethod: string) => {
+        set({
+          cart: {
+            ...get().cart,
+            paymentMethod,
+          },
+        })
+      },
+      setShopFrom:(shopFrom:string)=>{
+        set({
+          cart: {
+            ...get().cart,
+            shopFrom,
+          }
+        })
+      },
+      clearCart: () => {
+        set({
+          cart: {
+            ...get().cart,
+            items: [],
           },
         })
       },

@@ -63,7 +63,7 @@ const users: IUserInput[] = [
       phone: '123-456-7890',
     },
     paymentMethod: 'Cash On Delivery',
-    shopFrom:'Shop 1',
+    shopFrom:'Shop 3',
     emailVerified: false,
   },
   {
@@ -79,7 +79,7 @@ const users: IUserInput[] = [
       phone: '123-456-7890',
     },
     paymentMethod: 'Cash On Delivery',
-    shopFrom:'Shop 1',
+    shopFrom:'Shop 2',
     emailVerified: false,
   },
   {

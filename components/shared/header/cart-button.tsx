@@ -18,7 +18,6 @@ export default function CartButton() {
     <Link href='/cart' className='px-1 header-button'>
       <div className='flex items-end text-xs relative'>
         <ShoppingCartIcon className='h-8 w-8 text-primary' />
-
         {isMounted && (
           <span
             className={cn(
