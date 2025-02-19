@@ -23,18 +23,18 @@ export const DEFAULT_PAYMENT_METHOD =
 
 export const AVAILABLE_SHOPS = [
   {
-    name: 'Shop 1',
+    name: 'Shop One',
     isDefault: true,
   },
   {
-    name: 'Shop 2',
+    name: 'Shop Two',
     isDefault: false,
   },
   {
-    name: 'Shop 3',
+    name: 'Shop Three',
     isDefault: false,
   }
 ]
 export const DEFAULT_SHOP = [
-  process.env.DEFAULT_PAYMENT_METHOD || 'Shop 1'
+  process.env.DEFAULT_PAYMENT_METHOD || 'Shop One'
 ]

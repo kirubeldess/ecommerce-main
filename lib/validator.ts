@@ -2,6 +2,9 @@ import { z } from 'zod'
 import { formatNumberWithDecimal } from './utils'
 
 // Common
+const MongoId = z
+  .string()
+  .regex(/^[0-9a-fA-F]{24}$/, { message: 'Invalid MongoDB ID' })
 const Price = (field: string) =>
   z.coerce
     .number()
@@ -50,7 +53,6 @@ export const OrderItemSchema = z.object({
   image: z.string().min(1, 'Image is required'),
   price: Price('Price')
 })
-
 export const ShippingAddressSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
   phone: z.string().min(1, 'Phone number is required'),
@@ -58,6 +60,37 @@ export const ShippingAddressSchema = z.object({
   floor: z.string().min(1, 'floor is required'),
   room: z.string().min(1, 'House Number is required'),
 })
+export const OrderInputSchema = z.object({
+  user: z.union([
+    MongoId,
+    z.object({
+      name: z.string(),
+      email: z.string().email(),
+    }),
+  ]),
+  items: z
+    .array(OrderItemSchema)
+    .min(1, 'Order must contain at least one item'),
+  shippingAddress: ShippingAddressSchema,
+  paymentMethod: z.string().min(1, 'Payment method is required'),
+  shopFrom: z.string().min(1,'shop is required'),
+  paymentResult: z
+    .object({
+      id: z.string(),
+      status: z.string(),
+      email_address: z.string(),
+      pricePaid: z.string(),
+    })
+    .optional(),
+  itemsPrice: Price('Items price'),
+  shippingPrice: Price('Shipping price'),
+  totalPrice: Price('Total price'),
+  isDelivered: z.boolean().default(false),
+  deliveredAt: z.date().optional(),
+  isPaid: z.boolean().default(false),
+  paidAt: z.date().optional(),
+})
+
 
 export const CartSchema = z.object({
   items: z.array(OrderItemSchema).min(1,'Order must contain atleast 1 item'),

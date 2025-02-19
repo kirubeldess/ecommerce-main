@@ -614,7 +614,7 @@
 
 'use client'
 import { useState, useEffect } from 'react'
-// import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -652,6 +652,8 @@ import {
   AVAILABLE_SHOPS,
   DEFAULT_SHOP,
 } from '@/lib/constants'
+import { toast } from '@/hooks/use-toast'
+import { createOrder } from '@/lib/actions/order.actions'
 
 const shippingAddressDefaultValues =
   process.env.NODE_ENV === 'development'
@@ -671,7 +673,7 @@ const shippingAddressDefaultValues =
       }
 
 const CheckoutForm = () => {
-//   const router = useRouter()
+  const router = useRouter()
   const isMounted = useIsMounted()
 
   const {
@@ -689,6 +691,7 @@ const CheckoutForm = () => {
     setShopFrom,
     updateItem,
     removeItem,
+    clearCart,
   } = useCartStore()
 
   // We'll use a single step state to manage the flow:
@@ -717,7 +720,28 @@ const CheckoutForm = () => {
   }, [isMounted, shippingAddress, shippingAddressForm])
 
   const handlePlaceOrder = async () => {
-    // TODO: implement order placement logic
+    const res = await createOrder({
+        items,
+        shippingAddress,
+        paymentMethod,
+        shopFrom: Array.isArray(shopFrom) ? shopFrom[0] : shopFrom,
+        itemsPrice,
+        shippingPrice,
+        totalPrice,
+      })
+      if (!res.success) {
+        toast({
+          description: res.message,
+          variant: 'destructive',
+        })
+      } else {
+        toast({
+          description: res.message,
+          variant: 'default',
+        })
+        clearCart()
+        router.push(`/checkout/${res.data?.orderId}`)
+      }
   }
 
   return (
