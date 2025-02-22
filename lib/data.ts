@@ -273,7 +273,7 @@ const products: IProductInput[] = [
     slug: toSlug('A moisturizing lip balm enriched with shea butter and vitamin E'),
     category: 'Cosmetics',
     brand: 'Victorias',
-    images: ['/images/lipstcks'],
+    images: ['/images/lipstcks.jpg'],
     tags: ['best-seller','featured'],
     isPublished: true,
     price: 30,
