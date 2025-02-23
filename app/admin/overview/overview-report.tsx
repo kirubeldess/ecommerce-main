@@ -211,6 +211,7 @@ export default function OverviewReport() {
                     <TableHead>Total</TableHead>
                     <TableHead>Actions</TableHead>
                   </TableRow>
+                  
                 </TableHeader>
                 <TableBody>
                   {data.latestOrders.map((order: IOrderList) => (
@@ -231,6 +232,7 @@ export default function OverviewReport() {
                           <span className='px-4 py-2 bg-primary text-white rounded-md'>Details</span>
                         </Link>
                       </TableCell>
+
                     </TableRow>
                   ))}
                 </TableBody>
