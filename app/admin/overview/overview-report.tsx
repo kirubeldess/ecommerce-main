@@ -211,7 +211,7 @@ export default function OverviewReport() {
                     <TableHead>Total</TableHead>
                     <TableHead>Actions</TableHead>
                   </TableRow>
-                  
+
                 </TableHeader>
                 <TableBody>
                   {data.latestOrders.map((order: IOrderList) => (
