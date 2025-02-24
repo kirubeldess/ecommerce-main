@@ -117,7 +117,6 @@ const ProductList = () => {
                 <TableHead>Name</TableHead>
                 <TableHead className='text-right'>Price</TableHead>
                 <TableHead>Category</TableHead>
-                {/* <TableHead>Stock</TableHead> */}
                 <TableHead>Rating</TableHead>
                 <TableHead>Published</TableHead>
                 <TableHead>Last Update</TableHead>
@@ -135,7 +134,6 @@ const ProductList = () => {
                   </TableCell>
                   <TableCell className='text-right'>{product.price} ETB</TableCell>
                   <TableCell>{product.category}</TableCell>
-                  {/* <TableCell>{product.countInStock}</TableCell> */}
                   <TableCell>{product.avgRating}</TableCell>
                   <TableCell>{product.isPublished ? 'Yes' : 'No'}</TableCell>
                   <TableCell>
