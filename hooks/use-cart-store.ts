@@ -57,11 +57,17 @@ const useCartStore = create(
             })),
           },
         })
-        // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
-        return updatedCartItems.find(
-          (x) =>
-            x.product === item.product 
-        )?.clientId!
+        // // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+        // return updatedCartItems.find(
+        //   (x) =>
+        //     x.product === item.product 
+        // )?.clientId!
+        const foundItem = updatedCartItems.find((x) => x.product === item.product);
+            if (!foundItem) {
+              throw new Error("Item not found in cart");
+            }
+            return foundItem.clientId;
+        
       },
       updateItem: async (item: OrderItem, quantity: number) => {
         const { items,shippingAddress } = get().cart

@@ -274,6 +274,7 @@ const ProductForm = ({
                           height={100}
                         />
                       ))}
+                      
                       <FormControl>
                         <UploadButton
                           endpoint='imageUploader'
@@ -288,37 +289,24 @@ const ProductForm = ({
                           }}
                         />
                       </FormControl>
+                      {/* <Button
+                            variant={'destructive'}
+                            className='absolute top-1 right-1 bg-primary'
+                            type='button'
+                            size='icon'
+                            onClick={() => {
+                              form.setValue(
+                                'images',
+                                images.filter((img) => img !== img)
+                              )
+                            }}
+                          >
+                            <Trash />
+                        </Button> */}
+
                     </div>
                   </CardContent>
-                  {/* <CardContent className="space-y-2 mt-2 min-h-48">
-  <div className="flex justify-start items-center space-x-2">
-    {images.length > 0 &&
-      images.map((image: string) => (
-        <Image
-          key={image}
-          src={image}
-          alt="product image"
-          className="w-20 h-20 object-cover object-center rounded-sm"
-          width={100}
-          height={100}
-        />
-      ))}
-    <FormControl>
-      <UploadButton
-        endpoint="imageUploader"
-        onClientUploadComplete={(res: { url: string }[]) => {
-          form.setValue("images", res.map((item) => item.url)); // Only use newly uploaded images
-        }}
-        onUploadError={(error: Error) => {
-          toast({
-            variant: "destructive",
-            description: `ERROR! ${error.message}`,
-          });
-        }}
-      />
-    </FormControl>
-  </div>
-</CardContent> */}
+                 
                 </Card>
 
                 <FormMessage />
