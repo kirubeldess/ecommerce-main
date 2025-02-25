@@ -333,8 +333,8 @@ export default function OrderDetailsForm({
       </div>
     </div>
     <div className='flex items-center justify-center mt-4'>
-      <Link href='/admin/orders'>
-        <Button className='bg-primary text-white'>Back to Orders</Button>
+      <Link href='/'>
+        <Button className='bg-primary text-white'>Back to Home</Button>
       </Link>
     </div>
     </>
