@@ -25,15 +25,15 @@ const sortOrders = [
 
 const prices = [
   {
-    name: '$1 to $20',
+    name: '1ETB to 20ETB ',
     value: '1-20',
   },
   {
-    name: '$21 to $50',
+    name: '21ETB to 50ETB',
     value: '21-50',
   },
   {
-    name: '$51 to $1000',
+    name: '51ETB to 1000ETB',
     value: '51-1000',
   },
 ]
